@@ -28,11 +28,20 @@ struct employe{
 };
 typedef struct employe employe;
 
+struct tri{
+	employe e1;
+	date derniere_connexion;
+	
+};
+typedef struct tri tri;
+
 int downloaddata(char file_name[],employe tab[]);//retourne le nombre demployé
 void uploaddata(char file_name[],employe tab[]);
+
 int verifieConnection(char user[],char password[],login tab[],int taille);//retourne le role de lemployé(soit un simple employé soit un admin)
 void ajouteremploye(employe e1,login tab[],int *taille);
 void supprimeremploye(char CNI[],login tab[],int *taille);
 void modifieremploye(char CNI[],login tab[],int *taille);
+void afficheremploye(login tab[],int taille,tri t1);
 
 #endif // GESTIONCOMPTE_H_INCLUDED
