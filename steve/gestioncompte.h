@@ -28,8 +28,8 @@ struct employe{
 };
 typedef struct employe employe;
 
-int downloaddata(FILE *f,employe tab[]);//retourne le nombre demployé
-void uploaddata(FILE *f,employe tab[]);
+int downloaddata(char file_name[],employe tab[]);//retourne le nombre demployé
+void uploaddata(char file_name[],employe tab[]);
 int verifieConnection(char user[],char password[],login tab[],int taille);//retourne le role de lemployé(soit un simple employé soit un admin)
 void ajouteremploye(employe e1,login tab[],int *taille);
 void supprimeremploye(char CNI[],login tab[],int *taille);
