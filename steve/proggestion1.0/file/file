@@ -1,0 +1,11 @@
+1-hotel
+id cin dt_res    ville   nom    date_arrivee nb_nuit pension prix
+1 123  12/2/2019 yaounde boun's 20/02/2019   3       0       120 
+
+2- vol
+id cin dt_res    ville_depart ville_arrivee nom     dt_depart  hr_depart class nb_place prix
+1  123 12/2/2019 yaounde      douala        camerco 20/02/2019 00:20     E     2        120 
+
+3-taf a faire
+implementer lupdate du file
+gerer la date

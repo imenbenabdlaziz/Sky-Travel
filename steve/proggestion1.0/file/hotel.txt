@@ -1,0 +1,19 @@
+1 ibis Tunis 4 20 20 100 150
+2 marigold Tunis 5 25 26 120 250
+3 Business_Hotel Tunis 3 25 25 180 240
+4 avani_hotel Tunis 4 30 30 125 250
+5 novatel Tunis 3 40 40 133 248
+6 marhaba_Beach Sousse 3 31 23 180 300
+7 El_Faracha Sousse 5 25 25 175 263
+8 palace_hotel Sousse 4 40 40 182 249
+9 riviera Sousse 4 35 35 133 280
+10 La_badira Hammamet 4 40 20 130 300
+11 Hamilton Hammamet 4 40 30 150 260
+12 club_president Hammamet 5 30 30 166 315
+13 belazur Hammamet 4 30 30 112 250
+14 Djerba_orient Djerba 3 20 20 110 190
+15 Diar_yassine Djerba 4 25 25 160 264
+16 bravo Djerba 5 30 30 166 280
+17 ibis Sfax 4 30 26 159 210
+18 Business_Hotel Sfax 4 20 16 183 216
+
