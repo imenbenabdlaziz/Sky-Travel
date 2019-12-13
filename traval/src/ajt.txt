@@ -1,0 +1,5 @@
+222 tunisie canada 1 1 2019 3 1235 789 Economique 
+555 tunisie italie 12 12 2019 3 1278 789 Première 
+666 tunisie qatar 2 3 2019 5 785 78 Premium 
+999 tunisie paris 1 1 2019 2 959 78 Premium 
+aaa aaa aa 1 1 2019 aa mmm ffff ClasseAffaire 
