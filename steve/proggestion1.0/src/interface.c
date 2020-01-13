@@ -54,7 +54,6 @@ create_reservationhotel (void)
   GtkWidget *labeldate;
   GtkWidget *comboboxregion;
   GtkWidget *comboboxpension;
-  GtkWidget *labelerreurhotel;
   GtkWidget *labelaide2;
   GtkWidget *labeltitre;
   GtkWidget *label39;
@@ -70,6 +69,7 @@ create_reservationhotel (void)
   GtkWidget *hbox3;
   GtkWidget *image3;
   GtkWidget *label12;
+  GtkWidget *labelerreurhotel;
 
   reservationhotel = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_widget_set_size_request (reservationhotel, 800, 700);
@@ -196,12 +196,6 @@ create_reservationhotel (void)
   gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxpension), _("1/2"));
   gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxpension), _("complete"));
 
-  labelerreurhotel = gtk_label_new ("");
-  gtk_widget_show (labelerreurhotel);
-  gtk_fixed_put (GTK_FIXED (fixed1), labelerreurhotel, 544, 648);
-  gtk_widget_set_size_request (labelerreurhotel, 230, 25);
-  gtk_misc_set_alignment (GTK_MISC (labelerreurhotel), 0, 0.5);
-
   labelaide2 = gtk_label_new (_(" "));
   gtk_widget_show (labelaide2);
   gtk_fixed_put (GTK_FIXED (fixed1), labelaide2, 120, 584);
@@ -272,6 +266,12 @@ create_reservationhotel (void)
   gtk_widget_show (label12);
   gtk_box_pack_start (GTK_BOX (hbox3), label12, FALSE, FALSE, 0);
 
+  labelerreurhotel = gtk_label_new ("");
+  gtk_widget_show (labelerreurhotel);
+  gtk_fixed_put (GTK_FIXED (fixed1), labelerreurhotel, 496, 672);
+  gtk_widget_set_size_request (labelerreurhotel, 230, 25);
+  gtk_misc_set_alignment (GTK_MISC (labelerreurhotel), 0, 0.5);
+
   g_signal_connect ((gpointer) reservationhotel, "destroy",
                     G_CALLBACK (on_reservationhotel_destroy),
                     NULL);
@@ -311,7 +311,6 @@ create_reservationhotel (void)
   GLADE_HOOKUP_OBJECT (reservationhotel, labeldate, "labeldate");
   GLADE_HOOKUP_OBJECT (reservationhotel, comboboxregion, "comboboxregion");
   GLADE_HOOKUP_OBJECT (reservationhotel, comboboxpension, "comboboxpension");
-  GLADE_HOOKUP_OBJECT (reservationhotel, labelerreurhotel, "labelerreurhotel");
   GLADE_HOOKUP_OBJECT (reservationhotel, labelaide2, "labelaide2");
   GLADE_HOOKUP_OBJECT (reservationhotel, labeltitre, "labeltitre");
   GLADE_HOOKUP_OBJECT (reservationhotel, label39, "label39");
@@ -327,6 +326,7 @@ create_reservationhotel (void)
   GLADE_HOOKUP_OBJECT (reservationhotel, hbox3, "hbox3");
   GLADE_HOOKUP_OBJECT (reservationhotel, image3, "image3");
   GLADE_HOOKUP_OBJECT (reservationhotel, label12, "label12");
+  GLADE_HOOKUP_OBJECT (reservationhotel, labelerreurhotel, "labelerreurhotel");
 
   return reservationhotel;
 }
@@ -888,8 +888,8 @@ create_mesreservations (void)
 
   labelerreurreservation = gtk_label_new ("");
   gtk_widget_show (labelerreurreservation);
-  gtk_fixed_put (GTK_FIXED (fixed4), labelerreurreservation, 296, 552);
-  gtk_widget_set_size_request (labelerreurreservation, 200, 25);
+  gtk_fixed_put (GTK_FIXED (fixed4), labelerreurreservation, 250, 552);
+  gtk_widget_set_size_request (labelerreurreservation, 300, 25);
   gtk_misc_set_alignment (GTK_MISC (labelerreurreservation), 0, 0.5);
 
   g_signal_connect ((gpointer) mesreservations, "destroy",
@@ -1040,7 +1040,6 @@ create_windowmodification (void)
   GtkWidget *windowmodification;
   GtkWidget *fixed6;
   GtkWidget *calendarreservation2;
-  GtkWidget *label42;
   GtkObject *spinbuttonmodifienbchambre_adj;
   GtkWidget *spinbuttonmodifienbchambre;
   GtkObject *spinbuttonmodifienbnuit_adj;
@@ -1059,6 +1058,8 @@ create_windowmodification (void)
   GtkWidget *image14;
   GtkWidget *label46;
   GtkWidget *comboboxmodifipension;
+  GtkWidget *label42;
+  GtkWidget *label53;
 
   windowmodification = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_widget_set_size_request (windowmodification, 500, 400);
@@ -1075,11 +1076,6 @@ create_windowmodification (void)
   gtk_calendar_display_options (GTK_CALENDAR (calendarreservation2),
                                 GTK_CALENDAR_SHOW_HEADING
                                 | GTK_CALENDAR_SHOW_DAY_NAMES);
-
-  label42 = gtk_label_new (_("*Double-cliquez pour s\303\251lectionner\nune date"));
-  gtk_widget_show (label42);
-  gtk_fixed_put (GTK_FIXED (fixed6), label42, 248, 48);
-  gtk_widget_set_size_request (label42, 250, 50);
 
   spinbuttonmodifienbchambre_adj = gtk_adjustment_new (1, 1, 10, 1, 10, 10);
   spinbuttonmodifienbchambre = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonmodifienbchambre_adj), 1, 0);
@@ -1160,6 +1156,17 @@ create_windowmodification (void)
   gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxmodifipension), _("1/2"));
   gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxmodifipension), _("complete"));
 
+  label42 = gtk_label_new (_("*Cliquez pour s\303\251lectionner\nune date"));
+  gtk_widget_show (label42);
+  gtk_fixed_put (GTK_FIXED (fixed6), label42, 248, 48);
+  gtk_widget_set_size_request (label42, 250, 50);
+
+  label53 = gtk_label_new ("");
+  gtk_widget_show (label53);
+  gtk_fixed_put (GTK_FIXED (fixed6), label53, 32, 8);
+  gtk_widget_set_size_request (label53, 300, 25);
+  gtk_misc_set_alignment (GTK_MISC (label53), 0, 0.5);
+
   g_signal_connect ((gpointer) calendarreservation2, "day_selected",
                     G_CALLBACK (on_calendarreservation2_day_selected),
                     NULL);
@@ -1174,7 +1181,6 @@ create_windowmodification (void)
   GLADE_HOOKUP_OBJECT_NO_REF (windowmodification, windowmodification, "windowmodification");
   GLADE_HOOKUP_OBJECT (windowmodification, fixed6, "fixed6");
   GLADE_HOOKUP_OBJECT (windowmodification, calendarreservation2, "calendarreservation2");
-  GLADE_HOOKUP_OBJECT (windowmodification, label42, "label42");
   GLADE_HOOKUP_OBJECT (windowmodification, spinbuttonmodifienbchambre, "spinbuttonmodifienbchambre");
   GLADE_HOOKUP_OBJECT (windowmodification, spinbuttonmodifienbnuit, "spinbuttonmodifienbnuit");
   GLADE_HOOKUP_OBJECT (windowmodification, label44, "label44");
@@ -1191,6 +1197,8 @@ create_windowmodification (void)
   GLADE_HOOKUP_OBJECT (windowmodification, image14, "image14");
   GLADE_HOOKUP_OBJECT (windowmodification, label46, "label46");
   GLADE_HOOKUP_OBJECT (windowmodification, comboboxmodifipension, "comboboxmodifipension");
+  GLADE_HOOKUP_OBJECT (windowmodification, label42, "label42");
+  GLADE_HOOKUP_OBJECT (windowmodification, label53, "label53");
 
   return windowmodification;
 }
@@ -1217,7 +1225,7 @@ create_Facture (void)
   GtkWidget *label51;
 
   Facture = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-  gtk_window_set_title (GTK_WINDOW (Facture), _("window1"));
+  gtk_window_set_title (GTK_WINDOW (Facture), _("Facture"));
 
   fixed7 = gtk_fixed_new ();
   gtk_widget_show (fixed7);

@@ -294,7 +294,10 @@ void view_onRowActivated (GtkWidget *objet,gpointer user_data){
 		uploaddatareservhotel("hotelreserver.txt",tab2,nb_hotel_resv);
 		
 		g_print ("chambre restante: %d\n",tab1[d].nb_chambre[recherche.pension]);
-		
+
+	
+		aide2 = lookup_widget(objet,"labelerreurhotel");
+		gtk_label_set_markup(GTK_LABEL(aide2),"<span foreground = \"#FF0000\" weight=\"bold\">*Reservation reussite!!!</span>");
 			
 	}
 	
@@ -358,9 +361,11 @@ void on_buttonupdateresev_clicked(GtkWidget *objet,gpointer user_data)
 	//si il n'a rien sélectionné
 	else{
 		aide2 = lookup_widget(objet,"labelerreurreservation");
-		gtk_label_set_text(GTK_LABEL(aide2),"*Sélectionnez une reservation!!!");
+		gtk_label_set_markup(GTK_LABEL(aide2),"<span foreground = \"#FF0000\" weight=\"bold\">*Selectionnez une Reservation!!!</span>");
 	}
-
+		recherche.arrive.jour = 0;
+	recherche.arrive.mois = 0;
+	recherche.arrive.annee = 0;
 
 }
 /*******************************************************************************************/
@@ -383,7 +388,22 @@ on_buttonmodifierannuler_clicked(GtkWidget *objet,gpointer user_data)
 void
 on_buttonmodifieconf_clicked(GtkWidget *objet,gpointer user_data)
 {	
-	GtkWidget *input1,*input2,*combobox;
+    GtkWidget *aidedate1;
+    aidedate1 = lookup_widget(objet,"label53");
+    int test_date_valide;
+    
+
+    
+    //je teste si la date est valide
+    test_date_valide = is_date_valide(recherche.dt_res,recherche.arrive);
+    
+    if(!test_date_valide){
+    	//if(store1 != NULL)
+    		gtk_list_store_clear(store1);
+    	gtk_label_set_markup(GTK_LABEL(aidedate1),"<span foreground = \"#FF0000\" weight=\"bold\">*Selectionnez une date valide!!!</span>");
+    }
+    else{
+    	GtkWidget *input1,*input2,*combobox;
 	char pension[10];
 
 	input1 = lookup_widget (objet,"spinbuttonmodifienbnuit");
@@ -415,6 +435,8 @@ on_buttonmodifieconf_clicked(GtkWidget *objet,gpointer user_data)
 	
 	fenetrechoix = create_choixreservation();
 	gtk_widget_show(fenetrechoix);
+    }
+	
 
 
 }
@@ -464,9 +486,8 @@ void on_buttonsupprimerreserv_clicked(GtkWidget *objet,gpointer user_data)
 	//si il n'a rien sélectionné
 	else{
 		aide2 = lookup_widget(objet,"labelerreurreservation");
-		gtk_label_set_text(GTK_LABEL(aide2),"*Sélectionnez une reservation!!!");
-	}
-
+		gtk_label_set_markup(GTK_LABEL(aide2),"<span foreground = \"#FF0000\" weight=\"bold\">*Selectionnez une Reservation!!!</span>");
+}
 }
 /*ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo*/
 
@@ -490,7 +511,7 @@ void on_buttonpayer_clicked(GtkWidget *objet,gpointer user_data)
 	//si il n'a rien sélectionné
 	else{
 		aide2 = lookup_widget(objet,"labelerreurreservation");
-		gtk_label_set_text(GTK_LABEL(aide2),"*Sélectionnez une reservation!!!");
+		gtk_label_set_markup(GTK_LABEL(aide2),"<span foreground = \"#FF0000\" weight=\"bold\">*Selectionnez une Reservation!!!</span>");
 	}
 
 

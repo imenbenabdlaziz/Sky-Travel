@@ -1,4 +1,4 @@
-1 ibis Tunis 4 20 20 100 150
+1 ibis Tunis 4 20 19 100 150
 2 marigold Tunis 5 25 26 120 250
 3 Business_Hotel Tunis 3 25 25 180 240
 4 avani_hotel Tunis 4 30 30 125 250
@@ -15,5 +15,4 @@
 15 Diar_yassine Djerba 4 25 25 160 264
 16 bravo Djerba 5 30 30 166 280
 17 ibis Sfax 4 30 26 159 210
-18 Business_Hotel Sfax 4 20 16 183 216
-
+18 Business_Hotel Sfax 4 20 14 183 216
